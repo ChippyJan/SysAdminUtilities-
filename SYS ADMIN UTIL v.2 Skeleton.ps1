@@ -4,7 +4,7 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
-<# Domain Admin Check/Credentials Check
+ # Domain Admin Check/Credentials Check
 $cred = [System.Management.Automation.PSCredential]::Empty
 while ($cred -eq [System.Management.Automation.PSCredential]::Empty) {
     $cred = Get-Credential
@@ -26,7 +26,7 @@ if ($isDomainAdmin) {
     [System.Windows.Forms.MessageBox]::Show("Access Denied, All attempts are logged and sent to the sysadmin email.", "Access Denied", 'OK', 'Error')
     Start-Sleep -Seconds 1
     exit
-}#>
+}
 # Define Tools & Shares
 $ToolsFunction = @{
     "Event Viewer"     = "eventvwr.msc"
@@ -501,4 +501,5 @@ $exitButton.Add_Click({
     $form.Close()
 })
 $form.Controls.Add($exitButton)
+
 $form.ShowDialog() | Out-Null
